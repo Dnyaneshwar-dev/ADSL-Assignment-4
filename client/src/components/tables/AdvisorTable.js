@@ -19,10 +19,10 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-export default function PrereqTable() {
+export default function AdvisorTable() {
   const [data, setData] = React.useState([]);
   const getData = async () => {
-    const res = await axios.get("http://localhost:5000/department");
+    const res = await axios.get("http://localhost:5000/advisor");
     return res.data;
   };
   React.useEffect(() => {

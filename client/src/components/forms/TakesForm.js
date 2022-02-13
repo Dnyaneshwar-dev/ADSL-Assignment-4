@@ -6,13 +6,15 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Button } from "@mui/material";
 import { Formik } from "formik";
+import axios from "axios";
+
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 export default function TakesForm() {
   const handleSubmit = async (values) => {
     console.log(values);
-    const res = await axios.post("http://localhost:5000/department", values);
+    const res = await axios.post("http://localhost:5000/takes", values);
 
     if (res.data.ok == true) {
       toast.success(`Added!`, {

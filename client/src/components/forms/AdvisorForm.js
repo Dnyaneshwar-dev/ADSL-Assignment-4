@@ -13,7 +13,7 @@ toast.configure();
 export default function AdvisorForm() {
   const handleSubmit = async (values) => {
     console.log(values);
-    const res = await axios.post("http://localhost:5000/department", values);
+    const res = await axios.post("http://localhost:5000/advisor", values);
 
     if (res.data.ok == true) {
       toast.success(`Added!`, {

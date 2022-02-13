@@ -6,13 +6,15 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Button } from "@mui/material";
 import { Formik } from "formik";
+import axios from "axios";
+
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 export default function TeachesForm() {
   const handleSubmit = async (values) => {
     console.log(values);
-    const res = await axios.post("http://localhost:5000/department", values);
+    const res = await axios.post("http://localhost:5000/teaches", values);
 
     if (res.data.ok == true) {
       toast.success(`Added!`, {
@@ -71,6 +73,7 @@ export default function TeachesForm() {
                     fullWidth
                     autoComplete="given-name"
                     variant="standard"
+                    onChange={handleChange}
                   />
                 </Grid>
 
@@ -83,6 +86,7 @@ export default function TeachesForm() {
                     fullWidth
                     autoComplete="shipping address-line1"
                     variant="standard"
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item width={"80%"}>
@@ -93,6 +97,7 @@ export default function TeachesForm() {
                     fullWidth
                     autoComplete="shipping address-line2"
                     variant="standard"
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item width={"80%"}>
@@ -103,6 +108,7 @@ export default function TeachesForm() {
                     fullWidth
                     autoComplete="shipping address-line2"
                     variant="standard"
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item width={"80%"}>
@@ -113,51 +119,10 @@ export default function TeachesForm() {
                     fullWidth
                     autoComplete="shipping address-line2"
                     variant="standard"
+                    onChange={handleChange}
                   />
                 </Grid>
 
-                {/* <Grid item xs={12} sm={6} >
-            <TextField
-              required
-              id="city"
-              name="city"
-              label="City"
-              fullWidth
-              autoComplete="shipping address-level2"
-              variant="standard"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} marginRight={3}>
-            <TextField
-              id="state"
-              name="state"
-              label="State/Province/Region"
-              fullWidth
-              variant="standard"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} marginRight={3}>
-            <TextField
-              required
-              id="zip"
-              name="zip"
-              label="Zip / Postal code"
-              fullWidth
-              autoComplete="shipping postal-code"
-              variant="standard"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} marginRight={3}>
-            <TextField
-              required
-              id="country"
-              name="country"
-              label="Country"
-              fullWidth
-              autoComplete="shipping country"
-              variant="standard"
-            />
-          </Grid> */}
                 <Grid item xs={12} sm={6} marginRight={3}>
                   <Button
                     color="primary"
@@ -165,6 +130,7 @@ export default function TeachesForm() {
                     style={{
                       marginBottom: 20,
                     }}
+                    onClick={handleSubmit}
                   >
                     Submit
                   </Button>

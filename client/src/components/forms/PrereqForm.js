@@ -6,13 +6,15 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Button } from "@mui/material";
 import { Formik } from "formik";
+import axios from "axios";
+
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 export default function PrereqForm() {
   const handleSubmit = async (values) => {
     console.log(values);
-    const res = await axios.post("http://localhost:5000/department", values);
+    const res = await axios.post("http://localhost:5000/prerequisite", values);
 
     if (res.data.ok == true) {
       toast.success(`Added!`, {
@@ -68,6 +70,7 @@ export default function PrereqForm() {
                     fullWidth
                     autoComplete="given-name"
                     variant="standard"
+                    onChange={handleChange}
                   />
                 </Grid>
 
@@ -80,6 +83,7 @@ export default function PrereqForm() {
                     fullWidth
                     autoComplete="shipping address-line1"
                     variant="standard"
+                    onChange={handleChange}
                   />
                 </Grid>
 
@@ -90,6 +94,7 @@ export default function PrereqForm() {
                     style={{
                       marginBottom: 20,
                     }}
+                    onClick={handleSubmit}
                   >
                     Submit
                   </Button>

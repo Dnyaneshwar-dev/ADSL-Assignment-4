@@ -22,7 +22,7 @@ const rows = [
 export default function TeachesTable() {
   const [data, setData] = React.useState([]);
   const getData = async () => {
-    const res = await axios.get("http://localhost:5000/department");
+    const res = await axios.get("http://localhost:5000/teaches");
     return res.data;
   };
   React.useEffect(() => {

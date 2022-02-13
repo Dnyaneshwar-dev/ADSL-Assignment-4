@@ -12,6 +12,7 @@ const classroom = require("./routes/classroom");
 const instructor = require("./routes/instructor");
 const section = require("./routes/section");
 const advisor = require("./routes/advisor");
+const takes = require("./routes/takes");
 
 const app = express();
 
@@ -28,7 +29,7 @@ app.use("/teaches", teaches);
 app.use("/prerequisite", prerequisite);
 app.use("/section", section);
 app.use("/advisor", advisor);
-
+app.use("/takes", takes);
 const port = 5000;
 app.listen(port, () =>
   console.log(`App running on port ${port}. http://localhost:${port}`)

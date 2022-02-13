@@ -23,7 +23,7 @@ const rows = [
 export default function ClassroomTable() {
   const [data, setData] = React.useState([]);
   const getData = async () => {
-    const res = await axios.get("http://localhost:5000/course");
+    const res = await axios.get("http://localhost:5000/classroom");
     return res.data;
   };
   React.useEffect(() => {

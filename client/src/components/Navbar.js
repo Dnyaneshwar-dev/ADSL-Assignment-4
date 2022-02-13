@@ -31,9 +31,9 @@ function Navbar() {
             >
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <a className="nav-link" to="/">
+                  <NavLink className="nav-link" to="/">
                     Home
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </div>
