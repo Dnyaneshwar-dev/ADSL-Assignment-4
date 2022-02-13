@@ -139,7 +139,7 @@ function App() {
           path="classroom/show"
           element={
             <AuthContext.Provider value={store}>
-              user != null ? <ClassroomTable /> : <Login />
+              {user != null ? <ClassroomTable /> : <Login />}
             </AuthContext.Provider>
           }
         />
@@ -148,7 +148,7 @@ function App() {
           path="takes/add"
           element={
             <AuthContext.Provider value={store}>
-              user != null ? <TakesForm /> : <Login />
+              {user != null ? <TakesForm /> : <Login />}
             </AuthContext.Provider>
           }
         />
@@ -165,7 +165,9 @@ function App() {
           path="timeslot/add"
           element={
             user != null ? (
-              <TimeslotForm />
+              <AuthContext.Provider value={store}>
+                <TimeslotForm />
+              </AuthContext.Provider>
             ) : (
               <AuthContext.Provider value={store}>
                 <Login />
@@ -177,7 +179,9 @@ function App() {
           path="timeslot/show"
           element={
             user != null ? (
-              <TimeslotTable />
+              <AuthContext.Provider value={store}>
+                <TimeslotTable />
+              </AuthContext.Provider>
             ) : (
               <AuthContext.Provider value={store}>
                 <Login />
