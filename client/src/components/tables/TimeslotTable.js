@@ -33,43 +33,47 @@ export default function TimeslotTable() {
   }, []);
 
   return (
-    <TableContainer
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        marginTop: 30,
-      }}
-    >
-      <Table
-        sx={{ width: "80%", border: "1px solid" }}
-        aria-label="simple table"
+    <>
+      {" "}
+      <h2 style={{ marginLeft: "10%", marginTop: "2%" }}>Time Slots</h2>
+      <TableContainer
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          marginTop: 30,
+        }}
       >
-        <TableHead>
-          <TableRow>
-            <TableCell>Time Slot ID </TableCell>
-            <TableCell align="right">Day</TableCell>
-            <TableCell align="right">Start Time</TableCell>
-            <TableCell align="right">End Time</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((row) => (
-            <TableRow
-              key={row.time_slot_id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.time_slot_id}
-              </TableCell>
-              <TableCell align="right">{row.day}</TableCell>
-              <TableCell align="right">{row.start_time}</TableCell>
-              <TableCell align="right">{row.end_time}</TableCell>
+        <Table
+          sx={{ width: "80%", border: "1px solid" }}
+          aria-label="simple table"
+        >
+          <TableHead>
+            <TableRow>
+              <TableCell>Time Slot ID </TableCell>
+              <TableCell align="right">Day</TableCell>
+              <TableCell align="right">Start Time</TableCell>
+              <TableCell align="right">End Time</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {data.map((row) => (
+              <TableRow
+                key={row.time_slot_id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.time_slot_id}
+                </TableCell>
+                <TableCell align="right">{row.day}</TableCell>
+                <TableCell align="right">{row.start_time}</TableCell>
+                <TableCell align="right">{row.end_time}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   );
 }

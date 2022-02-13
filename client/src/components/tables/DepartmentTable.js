@@ -33,6 +33,9 @@ export default function DepartmentTable() {
   }, []);
 
   return (
+    <>
+          <h2 style={{ marginLeft: "10%", marginTop: "2%" }}>Departments</h2>
+
     <TableContainer
       style={{
         display: "flex",
@@ -68,6 +71,6 @@ export default function DepartmentTable() {
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+    </TableContainer></>
   );
 }

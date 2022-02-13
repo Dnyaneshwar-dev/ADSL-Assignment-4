@@ -15,10 +15,10 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const { ID, course_id, semester, year, grade } = req.body;
+  const { ID, course_id, sec_id, semester, year, grade } = req.body;
 
   db.query(
-    `INSERT INTO takes VALUES ('${ID}', '${course_id}', '${semester}', ${year}, '${grade}');`,
+    `INSERT INTO takes VALUES ('${ID}', '${course_id}','${sec_id}', '${semester}', ${year}, '${grade}');`,
     (error, result) => {
       if (error) {
         res.send({ ok: false, error: error });

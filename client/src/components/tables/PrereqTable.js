@@ -32,7 +32,9 @@ export default function PrereqTable() {
     });
   }, []);
 
-  return (
+  return (<>
+        <h2 style={{ marginLeft: "10%", marginTop: "2%" }}>Prerequisites</h2>
+
     <TableContainer
       style={{
         display: "flex",
@@ -66,6 +68,6 @@ export default function PrereqTable() {
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+    </TableContainer></>
   );
 }

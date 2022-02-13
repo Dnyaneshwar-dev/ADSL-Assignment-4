@@ -67,7 +67,7 @@ export default function AddressForm() {
                     required
                     id="building"
                     name="building"
-                    label="Building Number"
+                    label="Building"
                     fullWidth
                     autoComplete="given-name"
                     variant="standard"

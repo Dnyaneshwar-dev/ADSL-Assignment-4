@@ -34,7 +34,7 @@ export default function ClassroomTable() {
 
   return (
     <>
-      <h2 style={{ marginLeft: "10%" }}>Classrooms</h2>
+      <h2 style={{ marginLeft: "10%", marginTop: "2%" }}>Classrooms</h2>
       <TableContainer
         style={{
           display: "flex",

@@ -33,43 +33,47 @@ export default function StudentTable() {
   }, []);
 
   return (
-    <TableContainer
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        marginTop: 30,
-      }}
-    >
-      <Table
-        sx={{ width: "80%", border: "1px solid" }}
-        aria-label="simple table"
+    <>
+      {" "}
+      <h2 style={{ marginLeft: "10%", marginTop: "2%" }}>Students</h2>
+      <TableContainer
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          marginTop: 30,
+        }}
       >
-        <TableHead>
-          <TableRow>
-            <TableCell>ID </TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Department Name</TableCell>
-            <TableCell align="right">Credits</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((row) => (
-            <TableRow
-              key={row.ID}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.ID}
-              </TableCell>
-              <TableCell align="right">{row.name}</TableCell>
-              <TableCell align="right">{row.dept_name}</TableCell>
-              <TableCell align="right">{row.tot_cred}</TableCell>
+        <Table
+          sx={{ width: "80%", border: "1px solid" }}
+          aria-label="simple table"
+        >
+          <TableHead>
+            <TableRow>
+              <TableCell>ID </TableCell>
+              <TableCell align="right">Name</TableCell>
+              <TableCell align="right">Department Name</TableCell>
+              <TableCell align="right">Credits</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {data.map((row) => (
+              <TableRow
+                key={row.ID}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.ID}
+                </TableCell>
+                <TableCell align="right">{row.name}</TableCell>
+                <TableCell align="right">{row.dept_name}</TableCell>
+                <TableCell align="right">{row.tot_cred}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   );
 }

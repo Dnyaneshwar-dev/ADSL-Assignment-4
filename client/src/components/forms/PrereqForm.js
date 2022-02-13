@@ -59,7 +59,7 @@ export default function PrereqForm() {
             <>
               <Grid container spacing={3} width="60%" border="1px solid">
                 <Grid item xs={12}>
-                  <h2>Add Advisor Details</h2>
+                  <h2>Add Prerequisites Details</h2>
                 </Grid>
                 <Grid item width={"80%"}>
                   <TextField

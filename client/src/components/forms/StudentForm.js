@@ -15,7 +15,9 @@ export default function StudentForm() {
   const handleSubmit = async (values) => {
     console.log(values);
     const res = await axios.post("http://localhost:5000/student", values);
-
+    console.log("====================================");
+    console.log(res);
+    console.log("====================================");
     if (res.data.ok == true) {
       toast.success(`Added!`, {
         position: "top-right",
@@ -53,7 +55,7 @@ export default function StudentForm() {
             ID: "",
             name: "",
             dept_name: "",
-            total_cred: "",
+            tot_cred: "",
           }}
           onSubmit={handleSubmit}
         >
@@ -101,8 +103,8 @@ export default function StudentForm() {
                 </Grid>
                 <Grid item width={"80%"}>
                   <TextField
-                    id="total_cred"
-                    name="total_cred"
+                    id="tot_cred"
+                    name="tot_cred"
                     label="Total Credits"
                     fullWidth
                     autoComplete="shipping address-line2"

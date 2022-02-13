@@ -31,6 +31,7 @@ export default function CardItem(props) {
         <Button
           size="small"
           variant="outlined"
+          className="mb-2"
           onClick={() => {
             navigate(props.link);
           }}

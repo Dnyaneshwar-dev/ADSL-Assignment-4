@@ -61,7 +61,7 @@ export default function TimeslotForm() {
             <>
               <Grid container spacing={3} width="60%" border="1px solid">
                 <Grid item xs={12}>
-                  <h2>Add Student Details</h2>
+                  <h2>Add Time Slots Details</h2>
                 </Grid>
                 <Grid item width={"80%"}>
                   <TextField

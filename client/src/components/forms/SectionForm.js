@@ -15,7 +15,7 @@ export default function SectionForm() {
   const handleSubmit = async (values) => {
     console.log(values);
     const res = await axios.post("http://localhost:5000/section", values);
-
+    console.log(res);
     if (res.data.ok == true) {
       toast.success(`Added!`, {
         position: "top-right",

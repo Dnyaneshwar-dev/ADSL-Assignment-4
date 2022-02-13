@@ -33,39 +33,42 @@ export default function AdvisorTable() {
   }, []);
 
   return (
-    <TableContainer
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        marginTop: 30,
-      }}
-    >
-      <Table
-        sx={{ width: "80%", border: "1px solid" }}
-        aria-label="simple table"
+    <>
+      <h2 style={{ marginLeft: "10%", marginTop: "2%" }}>Advisors</h2>
+      <TableContainer
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          marginTop: 30,
+        }}
       >
-        <TableHead>
-          <TableRow>
-            <TableCell>s_ID </TableCell>
-            <TableCell align="right">i_ID</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((row) => (
-            <TableRow
-              key={row.s_ID}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.s_ID}
-              </TableCell>
-              <TableCell align="right">{row.i_ID}</TableCell>
+        <Table
+          sx={{ width: "80%", border: "1px solid" }}
+          aria-label="simple table"
+        >
+          <TableHead>
+            <TableRow>
+              <TableCell>s_ID </TableCell>
+              <TableCell align="right">i_ID</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {data.map((row) => (
+              <TableRow
+                key={row.s_ID}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.s_ID}
+                </TableCell>
+                <TableCell align="right">{row.i_ID}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   );
 }

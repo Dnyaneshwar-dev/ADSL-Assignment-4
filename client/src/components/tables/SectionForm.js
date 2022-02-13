@@ -32,7 +32,9 @@ export default function SectionTable() {
     });
   }, []);
 
-  return (
+  return (<>
+        <h2 style={{ marginLeft: "10%", marginTop: "2%" }}>Sections</h2>
+
     <TableContainer
       style={{
         display: "flex",
@@ -76,6 +78,6 @@ export default function SectionTable() {
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+    </TableContainer></>
   );
 }

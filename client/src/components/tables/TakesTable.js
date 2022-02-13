@@ -33,47 +33,51 @@ export default function TakesTable() {
   }, []);
 
   return (
-    <TableContainer
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        marginTop: 30,
-      }}
-    >
-      <Table
-        sx={{ width: "80%", border: "1px solid" }}
-        aria-label="simple table"
+    <>
+      {" "}
+      <h2 style={{ marginLeft: "10%", marginTop: "2%" }}>Takes</h2>
+      <TableContainer
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          marginTop: 30,
+        }}
       >
-        <TableHead>
-          <TableRow>
-            <TableCell>ID </TableCell>
-            <TableCell align="right">Course ID</TableCell>
-            <TableCell align="right">Section ID</TableCell>
-            <TableCell align="right">Semester</TableCell>
-            <TableCell align="right">Year</TableCell>
-            <TableCell align="right">Grade</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((row) => (
-            <TableRow
-              key={row.ID}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.ID}
-              </TableCell>
-              <TableCell align="right">{row.course_id}</TableCell>
-              <TableCell align="right">{row.sec_id}</TableCell>
-              <TableCell align="right">{row.semester}</TableCell>
-              <TableCell align="right">{row.year}</TableCell>
-              <TableCell align="right">{row.grade}</TableCell>
+        <Table
+          sx={{ width: "80%", border: "1px solid" }}
+          aria-label="simple table"
+        >
+          <TableHead>
+            <TableRow>
+              <TableCell>ID </TableCell>
+              <TableCell align="right">Course ID</TableCell>
+              <TableCell align="right">Section ID</TableCell>
+              <TableCell align="right">Semester</TableCell>
+              <TableCell align="right">Year</TableCell>
+              <TableCell align="right">Grade</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {data.map((row) => (
+              <TableRow
+                key={row.ID}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.ID}
+                </TableCell>
+                <TableCell align="right">{row.course_id}</TableCell>
+                <TableCell align="right">{row.sec_id}</TableCell>
+                <TableCell align="right">{row.semester}</TableCell>
+                <TableCell align="right">{row.year}</TableCell>
+                <TableCell align="right">{row.grade}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   );
 }
