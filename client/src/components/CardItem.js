@@ -18,12 +18,7 @@ const bull = (
 export default function CardItem(props) {
   const navigate = useNavigate();
   return (
-    <Card
-      style={{
-        width: "40%",
-        margin: 10,
-      }}
-    >
+    <Card className="col-md-4 col-10" style={{ marginRight: "20px" }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           {props.title}

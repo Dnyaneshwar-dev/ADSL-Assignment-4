@@ -4,8 +4,8 @@ const Home = () => {
   return (
     <div className="container-fluid mb-5 mt-5">
       <div className="row">
-        <div className="col-10 ms-auto">
-          <div className="row gy-10">
+        <div className="col-10 mx-auto">
+          <div className="row gy-4 justify-content-center">
             <CardItem
               title="Department"
               subtitle="Add Department"
@@ -21,7 +21,7 @@ const Home = () => {
 
             <CardItem
               title="Classrooms"
-              subtitle="Add Department"
+              subtitle="Add Classroom"
               link="/classroom/add"
               buttontext="ADD"
             />
