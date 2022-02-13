@@ -6,8 +6,36 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Button } from "@mui/material";
 import { Formik } from "formik";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 export default function AddressForm() {
+  const handleSubmit = async (values) => {
+    console.log(values);
+    const res = await axios.post("http://localhost:5000/department", values);
+
+    if (res.data.ok == true) {
+      toast.success(`Added!`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.error(`Something Went Wrong`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
   return (
     <>
       <div
@@ -24,8 +52,9 @@ export default function AddressForm() {
             room_number: "",
             capacity: "",
           }}
+          onSubmit={handleSubmit}
         >
-          {() => (
+          {({ handleChange, handleSubmit }) => (
             <>
               <Grid container spacing={3} width="60%" border="1px solid">
                 <Grid item xs={12}>

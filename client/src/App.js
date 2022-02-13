@@ -9,19 +9,13 @@ import StudentForm from "./components/forms/StudentForm";
 import SectionForm from "./components/forms/SectionForm";
 import CourseTable from "./components/tables/CourseTable";
 import DepartmentTable from "./components/tables/DepartmentTable";
+import AdvisorForm from "./components/forms/AdvisorForm";
 
 function App() {
   return (
     <>
       <Navbar />
-      <DepartmentTable />
-      <CourseTable />
-      <ClassRoomForm />
       <DepartmentForm />
-      <CourseForm />
-      <InstructorForm />
-      <StudentForm />
-      <SectionForm />
     </>
   );
 }

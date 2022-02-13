@@ -9,7 +9,7 @@ import { Formik } from "formik";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
-export default function StudentForm() {
+export default function TimeslotForm() {
   const handleSubmit = async (values) => {
     console.log(values);
     const res = await axios.post("http://localhost:5000/department", values);

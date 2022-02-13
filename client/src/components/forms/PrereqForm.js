@@ -9,7 +9,7 @@ import { Formik } from "formik";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
-export default function StudentForm() {
+export default function PrereqForm() {
   const handleSubmit = async (values) => {
     console.log(values);
     const res = await axios.post("http://localhost:5000/department", values);
@@ -48,10 +48,8 @@ export default function StudentForm() {
       >
         <Formik
           initialValues={{
-            ID: "",
-            name: "",
-            dept_name: "",
-            total_cred: "",
+            course_id: "",
+            prereq_id: "",
           }}
           onSubmit={handleSubmit}
         >
@@ -59,14 +57,14 @@ export default function StudentForm() {
             <>
               <Grid container spacing={3} width="60%" border="1px solid">
                 <Grid item xs={12}>
-                  <h2>Add Student Details</h2>
+                  <h2>Add Advisor Details</h2>
                 </Grid>
                 <Grid item width={"80%"}>
                   <TextField
                     required
-                    id="ID"
-                    name="ID"
-                    label="ID"
+                    id="course_id"
+                    name="course_id"
+                    label="course_id"
                     fullWidth
                     autoComplete="given-name"
                     variant="standard"
@@ -76,76 +74,15 @@ export default function StudentForm() {
                 <Grid item width={"80%"}>
                   <TextField
                     required
-                    id="name"
-                    name="name"
-                    label="Name"
+                    id="prereq_id"
+                    name="prereq_id"
+                    label="prereq_id"
                     fullWidth
                     autoComplete="shipping address-line1"
                     variant="standard"
                   />
                 </Grid>
-                <Grid item width={"80%"}>
-                  <TextField
-                    id="dept_name"
-                    name="dept_name"
-                    label="Department Name"
-                    fullWidth
-                    autoComplete="shipping address-line2"
-                    variant="standard"
-                  />
-                </Grid>
-                <Grid item width={"80%"}>
-                  <TextField
-                    id="total_cred"
-                    name="total_cred"
-                    label="Total Credits"
-                    fullWidth
-                    autoComplete="shipping address-line2"
-                    variant="standard"
-                  />
-                </Grid>
-                {/* <Grid item xs={12} sm={6} >
-            <TextField
-              required
-              id="city"
-              name="city"
-              label="City"
-              fullWidth
-              autoComplete="shipping address-level2"
-              variant="standard"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} marginRight={3}>
-            <TextField
-              id="state"
-              name="state"
-              label="State/Province/Region"
-              fullWidth
-              variant="standard"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} marginRight={3}>
-            <TextField
-              required
-              id="zip"
-              name="zip"
-              label="Zip / Postal code"
-              fullWidth
-              autoComplete="shipping postal-code"
-              variant="standard"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} marginRight={3}>
-            <TextField
-              required
-              id="country"
-              name="country"
-              label="Country"
-              fullWidth
-              autoComplete="shipping country"
-              variant="standard"
-            />
-          </Grid> */}
+
                 <Grid item xs={12} sm={6} marginRight={3}>
                   <Button
                     color="primary"

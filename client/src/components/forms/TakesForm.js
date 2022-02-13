@@ -9,7 +9,7 @@ import { Formik } from "formik";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
-export default function StudentForm() {
+export default function TakesForm() {
   const handleSubmit = async (values) => {
     console.log(values);
     const res = await axios.post("http://localhost:5000/department", values);
@@ -49,9 +49,11 @@ export default function StudentForm() {
         <Formik
           initialValues={{
             ID: "",
-            name: "",
-            dept_name: "",
-            total_cred: "",
+            course_id: "",
+            sec_id: "",
+            semester: "",
+            year: "",
+            grade: "",
           }}
           onSubmit={handleSubmit}
         >
@@ -59,7 +61,7 @@ export default function StudentForm() {
             <>
               <Grid container spacing={3} width="60%" border="1px solid">
                 <Grid item xs={12}>
-                  <h2>Add Student Details</h2>
+                  <h2>Add Takes Details</h2>
                 </Grid>
                 <Grid item width={"80%"}>
                   <TextField
@@ -76,9 +78,9 @@ export default function StudentForm() {
                 <Grid item width={"80%"}>
                   <TextField
                     required
-                    id="name"
-                    name="name"
-                    label="Name"
+                    id="course_id"
+                    name="course_id"
+                    label="Course ID"
                     fullWidth
                     autoComplete="shipping address-line1"
                     variant="standard"
@@ -86,9 +88,9 @@ export default function StudentForm() {
                 </Grid>
                 <Grid item width={"80%"}>
                   <TextField
-                    id="dept_name"
-                    name="dept_name"
-                    label="Department Name"
+                    id="sec_id"
+                    name="sec_id"
+                    label="Section ID"
                     fullWidth
                     autoComplete="shipping address-line2"
                     variant="standard"
@@ -96,9 +98,29 @@ export default function StudentForm() {
                 </Grid>
                 <Grid item width={"80%"}>
                   <TextField
-                    id="total_cred"
-                    name="total_cred"
-                    label="Total Credits"
+                    id="semester"
+                    name="semester"
+                    label="semester"
+                    fullWidth
+                    autoComplete="shipping address-line2"
+                    variant="standard"
+                  />
+                </Grid>
+                <Grid item width={"80%"}>
+                  <TextField
+                    id="year"
+                    name="year"
+                    label="year"
+                    fullWidth
+                    autoComplete="shipping address-line2"
+                    variant="standard"
+                  />
+                </Grid>
+                <Grid item width={"80%"}>
+                  <TextField
+                    id="grade"
+                    name="grade"
+                    label="grade"
                     fullWidth
                     autoComplete="shipping address-line2"
                     variant="standard"
