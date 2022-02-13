@@ -1,6 +1,9 @@
+import { Button } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import useAuth from "../auth/useAuth";
 function Navbar() {
+  const { user, logOut } = useAuth();
   const title = "University";
   return (
     <>
@@ -31,9 +34,20 @@ function Navbar() {
             >
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/">
-                    Home
-                  </NavLink>
+                  {user ? (
+                    <Button
+                      color="primary"
+                      onClick={() => {
+                        logOut();
+                      }}
+                    >
+                      Logout
+                    </Button>
+                  ) : (
+                    <NavLink className="nav-link" to="/login">
+                      Login
+                    </NavLink>
+                  )}
                 </li>
               </ul>
             </div>

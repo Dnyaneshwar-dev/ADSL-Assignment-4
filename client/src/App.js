@@ -26,47 +26,261 @@ import TeachesForm from "./components/forms/TeachesForm";
 import TeachesTable from "./components/tables/TeachesTable";
 import Home from "./pages/Home";
 import CardItem from "./components/CardItem";
+import AuthContext from "./auth/context";
+import getUser from "./auth/getUser";
+import { useState } from "react";
+import Login from "./components/Login";
 
 function App() {
+  const [user, setUser] = useState(getUser());
+  const store = { user, setUser };
+  console.log(user);
   return (
     <>
-      <Navbar />
+      <AuthContext.Provider value={store}>
+        <Navbar />
+      </AuthContext.Provider>
 
       <Routes>
-        <Route path="department/add" element={<DepartmentForm />} />
-        <Route path="department/show" element={<DepartmentTable />} />
+        <Route
+          path="department/add"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <DepartmentForm /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
+        <Route
+          path="department/show"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <DepartmentTable /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
 
-        <Route path="course/add" element={<CourseForm />} />
-        <Route path="course/show" element={<CourseTable />} />
+        <Route
+          path="course/add"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <CourseForm /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
+        <Route
+          path="course/show"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <CourseTable /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
 
-        <Route path="student/add" element={<StudentForm />} />
-        <Route path="student/show" element={<StudentTable />} />
+        <Route
+          path="student/add"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <StudentForm /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
+        <Route
+          path="student/show"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <StudentTable /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
 
-        <Route path="section/add" element={<SectionForm />} />
-        <Route path="section/show" element={<SectionTable />} />
+        <Route
+          path="section/add"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <SectionForm /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
+        <Route
+          path="section/show"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <SectionTable /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
 
-        <Route path="instructor/add" element={<InstructorForm />} />
-        <Route path="instructor/show" element={<InstructorTable />} />
+        <Route
+          path="instructor/add"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <InstructorForm /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
+        <Route
+          path="instructor/show"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <InstructorTable /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
 
-        <Route path="classroom/add" element={<ClassRoomForm />} />
-        <Route path="classroom/show" element={<ClassroomTable />} />
+        <Route
+          path="classroom/add"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <ClassRoomForm /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
+        <Route
+          path="classroom/show"
+          element={
+            <AuthContext.Provider value={store}>
+              user != null ? <ClassroomTable /> : <Login />
+            </AuthContext.Provider>
+          }
+        />
 
-        <Route path="takes/add" element={<TakesForm />} />
-        <Route path="takes/show" element={<TakesTable />} />
+        <Route
+          path="takes/add"
+          element={
+            <AuthContext.Provider value={store}>
+              user != null ? <TakesForm /> : <Login />
+            </AuthContext.Provider>
+          }
+        />
+        <Route
+          path="takes/show"
+          element={
+            <AuthContext.Provider value={store}>
+              {user != null ? <TakesTable /> : <Login />}
+            </AuthContext.Provider>
+          }
+        />
 
-        <Route path="timeslot/add" element={<TimeslotForm />} />
-        <Route path="timeslot/show" element={<TimeslotTable />} />
+        <Route
+          path="timeslot/add"
+          element={
+            user != null ? (
+              <TimeslotForm />
+            ) : (
+              <AuthContext.Provider value={store}>
+                <Login />
+              </AuthContext.Provider>
+            )
+          }
+        />
+        <Route
+          path="timeslot/show"
+          element={
+            user != null ? (
+              <TimeslotTable />
+            ) : (
+              <AuthContext.Provider value={store}>
+                <Login />
+              </AuthContext.Provider>
+            )
+          }
+        />
 
-        <Route path="prereq/add" element={<PrereqForm />} />
-        <Route path="prereq/show" element={<PrereqTable />} />
+        <Route
+          path="prereq/add"
+          element={
+            user != null ? (
+              <PrereqForm />
+            ) : (
+              <AuthContext.Provider value={store}>
+                <Login />
+              </AuthContext.Provider>
+            )
+          }
+        />
+        <Route
+          path="prereq/show"
+          element={
+            user != null ? (
+              <PrereqTable />
+            ) : (
+              <AuthContext.Provider value={store}>
+                <Login />
+              </AuthContext.Provider>
+            )
+          }
+        />
 
-        <Route path="advisor/add" element={<AdvisorForm />} />
-        <Route path="advisor/show" element={<AdvisorTable />} />
+        <Route
+          path="advisor/add"
+          element={
+            user != null ? (
+              <AdvisorForm />
+            ) : (
+              <AuthContext.Provider value={store}>
+                <Login />
+              </AuthContext.Provider>
+            )
+          }
+        />
+        <Route
+          path="advisor/show"
+          element={
+            user != null ? (
+              <AdvisorTable />
+            ) : (
+              <AuthContext.Provider value={store}>
+                <Login />
+              </AuthContext.Provider>
+            )
+          }
+        />
 
-        <Route path="teaches/add" element={<TeachesForm />} />
-        <Route path="teaches/show" element={<TeachesTable />} />
+        <Route
+          path="teaches/add"
+          element={
+            user != null ? (
+              <TeachesForm />
+            ) : (
+              <AuthContext.Provider value={store}>
+                <Login />
+              </AuthContext.Provider>
+            )
+          }
+        />
+        <Route
+          path="teaches/show"
+          element={
+            user != null ? (
+              <TeachesTable />
+            ) : (
+              <AuthContext.Provider value={store}>
+                <Login />
+              </AuthContext.Provider>
+            )
+          }
+        />
 
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            user != null ? (
+              <Home />
+            ) : (
+              <AuthContext.Provider value={store}>
+                <Login />
+              </AuthContext.Provider>
+            )
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <AuthContext.Provider value={store}>
+              <Login />
+            </AuthContext.Provider>
+          }
+        />
       </Routes>
     </>
   );
